@@ -271,9 +271,15 @@ h2 {
     .projects-title {
         display: block;
         text-align: center;
-        margin-top: 0;
-        margin-bottom: 2vh;
-        font-size: 1.2rem;
+        margin-top: 2vh;
+        margin-bottom: 4vh;
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         z-index: 10;
     }
 
@@ -313,7 +319,7 @@ h2 {
 
     #image-track {
         position: absolute;
-        top: 40%;
+        top: 55%;
         left: 5%;
         transform: translate(0%, -50%);
         margin-bottom: 0;
@@ -334,6 +340,10 @@ h2 {
         gap: 1rem;
         margin-top: 5vh;
         width: 90%;
+    }
+
+    #image-track {
+        top: 60%;
     }
 
     #image-track>.image {
