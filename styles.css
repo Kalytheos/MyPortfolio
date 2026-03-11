@@ -204,6 +204,10 @@ h2 {
     }
 }
 
+.projects-title {
+    display: none;
+}
+
 @media (max-width: 1200px) {
     .hero-content {
         width: 40%;
@@ -222,11 +226,22 @@ h2 {
     body {
         overflow-y: auto;
         overflow-x: hidden;
+        width: 100vw;
+        max-width: 100%;
         height: auto;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        /* Prevent elastic bouncing on mobile */
+        overscroll-behavior-x: none;
+    }
+
+    html {
+        overflow-x: hidden;
+        width: 100vw;
+        max-width: 100%;
+        overscroll-behavior-x: none;
     }
 
     .top-section {
@@ -245,9 +260,19 @@ h2 {
         position: relative;
         flex-grow: 1;
         display: flex;
+        flex-direction: column;
+        /* Add flex column for title + track */
         align-items: center;
         overflow: hidden;
         min-height: 50vh;
+    }
+
+    .projects-title {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 2vh;
+        font-size: 1.2rem;
+        z-index: 10;
     }
 
     .hero-content {
