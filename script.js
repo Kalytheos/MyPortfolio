@@ -1,6 +1,10 @@
 const track = document.getElementById("image-track");
+let isDragging = false;
 
-const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
+const handleOnDown = e => {
+  track.dataset.mouseDownAt = e.clientX;
+  isDragging = false;
+};
 
 const handleOnUp = () => {
   track.dataset.mouseDownAt = "0";
@@ -12,6 +16,8 @@ const handleOnMove = e => {
 
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
     maxDelta = window.innerWidth / 2;
+
+  if (Math.abs(mouseDelta) > 5) isDragging = true;
 
   const percentage = (mouseDelta / maxDelta) * -100,
     nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
@@ -102,3 +108,15 @@ window.ontouchstart = e => { pauseAutoScroll(); handleOnDown(e.touches[0]); };
 
 window.onmouseup = e => { handleOnUp(e); resumeAutoScroll(); };
 window.ontouchend = e => { handleOnUp(e.touches[0]); resumeAutoScroll(); };
+
+// Añadir click redirection para las imagenes
+for (const image of track.getElementsByClassName("image")) {
+  image.onclick = (e) => {
+    if (isDragging) {
+      e.preventDefault();
+      return;
+    }
+    const url = image.getAttribute("data-url");
+    if (url) window.open(url, "_blank");
+  };
+}
