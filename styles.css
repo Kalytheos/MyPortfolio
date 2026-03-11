@@ -264,8 +264,11 @@ h2 {
         flex-direction: column;
         /* Add flex column for title + track */
         align-items: center;
-        overflow: hidden;
+        overflow: visible;
+        /* Changed from hidden to avoid clipping */
         min-height: 50vh;
+        padding-bottom: 30vh;
+        /* Add generous padding so it doesn't get cut by screen edges */
     }
 
     .projects-title {
