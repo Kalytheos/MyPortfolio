@@ -19,9 +19,8 @@ const handleOnMove = e => {
 
   track.dataset.percentage = nextPercentage;
 
-  const isMobile = window.innerWidth <= 900;
   track.animate({
-    transform: `translate(${nextPercentage}%, ${isMobile ? '0%' : '-50%'})`
+    transform: `translate(${nextPercentage}%, -50%)`
   }, { duration: 1200, fill: "forwards" });
 
   for (const image of track.getElementsByClassName("image")) {
@@ -68,9 +67,8 @@ const startAutoScroll = () => {
     track.dataset.percentage = autoScrollPercentage;
     track.dataset.prevPercentage = autoScrollPercentage;
 
-    const isMobile = window.innerWidth <= 900;
     track.animate({
-      transform: `translate(${autoScrollPercentage}%, ${isMobile ? '0%' : '-50%'})`
+      transform: `translate(${autoScrollPercentage}%, -50%)`
     }, { duration: 1200, fill: "forwards" });
 
     for (const image of track.getElementsByClassName("image")) {
