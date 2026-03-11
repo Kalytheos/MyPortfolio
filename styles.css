@@ -181,7 +181,7 @@ h2 {
     bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.95rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: #64748b;
     display: flex;
@@ -319,7 +319,7 @@ h2 {
 
     #image-track {
         position: absolute;
-        top: 55%;
+        top: 70%;
         left: 5%;
         transform: translate(0%, -50%);
         margin-bottom: 0;
